@@ -97,7 +97,8 @@ class CeleryConfig(object):
         },
     }
 
-
+PUBLIC_ROLE_LIKE_GAMMA = True
+PUBLIC_ROLE_LIKE = "Gamma"
 CELERY_CONFIG = CeleryConfig
 
 FEATURE_FLAGS = {"ALERT_REPORTS": True}
