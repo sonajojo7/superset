@@ -177,3 +177,21 @@ Understanding the Superset Points of View
   - [Why Apache Superset is Betting on Apache ECharts](https://preset.io/blog/2021-4-1-why-echarts/)
 
 - [Superset API](https://superset.apache.org/docs/rest-api)
+
+# My Setup
+- Create [Droplet](cloud.digitalocean.com/projects/e1233b25-524f-4f73-9307-3fe4d349f808/resources?i=690297)
+- Setup github repo(branch:superset_demo)
+  - git clone https://github.com/sonajojo7/superset.git
+- Setup [superset](https://superset.apache.org/docs/installation/installing-superset-using-docker-compose/)
+  - Install docker-compose
+    - apt-get install docker-compose
+  - Pull docker images
+    - docker-compose -f docker-compose-non-dev.yml pull
+  - Bring up docker containers
+    - docker-compose -f docker-compose-non-dev.yml up
+  - Install pyathena in superset-app container
+    - docker exec -it superset_app bash
+    - pip install PyAthena
+  - Access [superset dashboard](http://<ip_address>:8088/superset/welcome/)
+  - Bring down docker containers
+    - docker-compose -f docker-compose-non-dev.yml down
