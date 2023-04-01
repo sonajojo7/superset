@@ -27,6 +27,7 @@
 ![Getting Started](./images/foodieViews.svg)
 
 ## [Dashboard](TBD)
+<img src="images/dashboard.gif" width="800" height="500" />
 
 
 ## Model
