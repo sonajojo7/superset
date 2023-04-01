@@ -1,6 +1,6 @@
 # EatFoodWise (Restaurant quality metrics aggregator)
 
-###Vision
+## Vision
 - Goal of the project is to build a data pipeline aggregating various data points pertaining to restaurants collected from a variety of data sources and providing analytical insights into restaurant quality over a timeline.
 - Analytical insights generated has the following use cases:
   - While choosing a restaurant, **customers** look at various quality metrics(ambience, taste, service, hygiene) and a lot of review sites to make their decision. It is also commonly observed that restaurant quality varies for better/worse over a timespan. Our goal is to visualize these metrics in an easily observable way to help customers with their choices. Not all metrics are available from all the data sources. For example, restaurant hygiene related data points are gathered from data published by city health departments. Note: Extraction of data, not available via apis, can be done via web scraping etc. Work pertaining to this is considered out of scope of this project.
@@ -12,7 +12,7 @@
 
 
 
-###Outline
+## Outline
 - Provide transparency into the quality of a restaurant over different time periods  to help consumer make better decisions.
 - Restaurant quality metrics are aggregated from various data sources(google, yelp reviews, health department grades etc).
 - Data collected is fed into data processing pipeline, built off AWS Glue(a serverless data integration service) using S3(object storage service offering scalability, data availability, security, and performance) as the storage layer. Data post extraction/transformation is exposed for interactive analytics on Aws Athena(serverless interactive query service). Athena service is integrated with Apache Superset to provide further data exploration and visualization capabilities.
@@ -26,8 +26,10 @@
 
 ![Getting Started](./images/foodieViews.svg)
 
+## [Dashboard](TBD)
 
-###Model
+
+## Model
 
 The data lake consists of foundational fact, dimension, and aggregate tables developed using dimensional data modeling techniques that can be accessed by engineers and data scientists in a self-serve manner to power data engineering. The ETL (extract, transform, load) pipelines that compute these tables are thus mission-critical.Our aim is to have data freshness and give engineering efforts that process data as quickly as possible to keep it up to date.
 In order to achieve the data freshness in our ETL pipelines, a key challenge is incrementally updating these modeled tables rather than recomputing all the data with each new ETL run. This is also necessary to operate these pipelines cost-effectively.   In this project, we aim to achieve an incremental data processing model which is efficient and cost-effective at the same time.
