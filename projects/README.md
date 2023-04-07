@@ -2,10 +2,15 @@
 
 ## Vision
 - Goal of the project is to build a data pipeline aggregating various data points pertaining to restaurants collected from a variety of data sources and providing analytical insights into restaurant quality over a timeline.
-- Use cases:
-  - While choosing a restaurant, **customers** look at various quality metrics(ambience, taste, service, hygiene) and a lot of review sites to make their decision. It is also commonly observed that restaurant quality varies for better/worse over a timespan. Our goal is to visualize these metrics in an easily observable way to help customers with their choices. Not all metrics are available from all the data sources. For example, restaurant hygiene related data points are gathered from data published by city health departments. Note: Extraction of data, not available via apis, can be done via web scraping etc. Work pertaining to this is considered out of scope of this project.
-  - Restaurant insights aggregating different data points are also informative to **restaurant owners/corporate chains** to come up with action items to improve restaurant performance.
-    - Visualizing correlation between various data point over a selected time period(restaurant rating vs hygiene).
+- While choosing a restaurant, **customers** look at various quality metrics(ambience, taste, service, hygiene) and a lot of review sites to make their decision. It is also commonly observed that restaurant quality varies for better/worse over a timespan. Our goal is to visualize these metrics in an easily observable way to help customers with their choices. Not all metrics are available from all the data sources. For example, restaurant hygiene related data points are gathered from data published by city health departments. Note: Extraction of data, not available via apis, can be done via web scraping etc. Work pertaining to this is considered out of scope of this project.
+- Restaurant insights aggregating different data points are also informative to **restaurant owners/corporate chains** to come up with action items to improve restaurant performance.
+- Analytics insights provided: 
+  - Various restaurant metrics representing quality could be correlated. For example, a restaurant with consistent low health grades is very likely to also have bad review ratings. 
+  <img src="images/dashboafrd.gif" width="900" height="400" />
+  - Customers might want to know how a restaurant has fared over a specific time period. It is not uncommon for restaurant quality to take a sharp turn for better or worse due to various reasons(management change, cost cutting measures, stress on profits etc). These changes will not be reflected over average review ratings provided by various review sites.
+  <img src="images/dashboafrd.gif" width="900" height="400" />
+  - Customers
+      - Visualizing correlation between various data points over a selected time period(restaurant rating vs hygiene).
     - Outliers in ratings collected from different review sites could indicate potential fraud.
 
 
@@ -15,7 +20,7 @@
 ## Outline
 - Provide transparency into the quality of a restaurant over different time periods  to help consumer make better decisions.
 - Restaurant quality metrics are aggregated from various data sources(google, yelp reviews, health department grades etc).
-- Data collected is fed into data processing pipeline, built off AWS Glue(a serverless data integration service) using S3(object storage service offering scalability, data availability, security, and performance) as the storage layer. Data post extraction/transformation is exposed for interactive analytics on Aws Athena(serverless interactive query service). Athena service is integrated with Apache Superset to provide further data exploration and visualization capabilities.
+- Data collected is fed into data processing pipeline, built off AWS Glue(a serverless data integration service) using [S3](link)(object storage service offering scalability, data availability, security, and performance) as the storage layer. Data post extraction/transformation is exposed for interactive analytics on Aws Athena(serverless interactive query service). Athena service is integrated with Apache Superset to provide further data exploration and visualization capabilities.
 - Data ingestion into the system is  done using various triggers
   - AWS cloudwatch cron: Raw data uploaded to S3 is processed as micro batches using glue jobs.
   - On-demand triggers for glue jobs  
