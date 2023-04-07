@@ -2,7 +2,7 @@
 
 ## Vision
 - Goal of the project is to build a data pipeline aggregating various data points pertaining to restaurants collected from a variety of data sources and providing analytical insights into restaurant quality over a timeline.
-- Analytical insights generated has the following use cases:
+- Use cases:
   - While choosing a restaurant, **customers** look at various quality metrics(ambience, taste, service, hygiene) and a lot of review sites to make their decision. It is also commonly observed that restaurant quality varies for better/worse over a timespan. Our goal is to visualize these metrics in an easily observable way to help customers with their choices. Not all metrics are available from all the data sources. For example, restaurant hygiene related data points are gathered from data published by city health departments. Note: Extraction of data, not available via apis, can be done via web scraping etc. Work pertaining to this is considered out of scope of this project.
   - Restaurant insights aggregating different data points are also informative to **restaurant owners/corporate chains** to come up with action items to improve restaurant performance.
     - Visualizing correlation between various data point over a selected time period(restaurant rating vs hygiene).
