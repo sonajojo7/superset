@@ -36,7 +36,7 @@ The data lake consists of foundational fact, dimension, and aggregate tables dev
 In order to achieve the data freshness in our ETL pipelines, a key challenge is incrementally updating these modeled tables rather than recomputing all the data with each new ETL run. This is also necessary to operate these pipelines cost-effectively.   In this project, we aim to achieve an incremental data processing model which is efficient and cost-effective at the same time.
 
 
-###Setup
+## Setup
 
 The raw data for health_grade, google_reviews and yelp_reviews were generated locally and were inserted into amazon S3's input bucket. The raw data of the reviews were designed in sach a way that the review corresponding to a particular review_id could be updated in cases where reviewer has a change of mind and updated the review to a new value. The design is based on an incremental data processing model. New data is uploaded on a regular interval in the raw data bucket. When new data is added, a trigger is initiated causing Glue job run and therby process the data. The trigger could be scheduled trigger, conditional trigger or on-demand trigger. In all cases, the glue job runs and data is processed.
 The glue job processes the data modeling it into form that could be further used to perform meaningful queries and to visualize the data.
