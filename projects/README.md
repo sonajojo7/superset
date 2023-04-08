@@ -7,7 +7,7 @@
 - Analytics insights provided: 
   - Various restaurant metrics representing quality could be correlated. For example, a restaurant with consistent low health grades is very likely to also have bad review ratings. 
   <br><br>
-  <img src="images/health_vs_hygiene.gif" max-width="100%" width="auto" height="auto" />
+  <img src="images/health_vs_hygiene.gif" width="100%" height="100%" />
   <br><br>
   
   - Customers might want to know how a restaurant has fared over a specific time period. It is not uncommon for restaurant quality to take a sharp turn for better or worse due to various reasons(management change, cost cutting measures, stress on profits etc). These changes will not be reflected over average review ratings provided by various review sites.
