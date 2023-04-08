@@ -6,9 +6,9 @@
 - Restaurant insights aggregating different data points are also informative to **restaurant owners/corporate chains** to come up with action items to improve restaurant performance.
 - Analytics insights provided: 
   - Various restaurant metrics representing quality could be correlated. For example, a restaurant with consistent low health grades is very likely to also have bad review ratings. 
-  <img src="images/health_vs_hygiene.gif" width="800" height="350" />
+  <img src="images/health_vs_hygiene.gif" width="1000" height="600" />
   - Customers might want to know how a restaurant has fared over a specific time period. It is not uncommon for restaurant quality to take a sharp turn for better or worse due to various reasons(management change, cost cutting measures, stress on profits etc). These changes will not be reflected over average review ratings provided by various review sites.
-  <img src="images/restaurant_quality.gif" width="800" height="350" />
+  <img src="images/restaurant_quality.gif" width="1000" height="500" />
   - Customers
       - Visualizing correlation between various data points over a selected time period(restaurant rating vs hygiene).
     - Outliers in ratings collected from different review sites could indicate potential fraud.
@@ -32,7 +32,7 @@
 ![Getting Started](./images/foodieViews.svg)
 
 ## [Dashboard](TBD)
-<img src="images/dashboard.gif" width="900" height="450" />
+<img src="images/dashboard.gif" width="1000" height="400" />
 
 
 ## Model
