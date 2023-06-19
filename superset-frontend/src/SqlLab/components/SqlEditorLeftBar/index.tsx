@@ -29,14 +29,11 @@ import querystring from 'query-string';
 
 import {
   queryEditorSetDb,
-  queryEditorSetFunctionNames,
   addTable,
   removeTables,
   collapseTable,
   expandTable,
   queryEditorSetSchema,
-  queryEditorSetTableOptions,
-  queryEditorSetSchemaOptions,
   setDatabases,
   addDangerToast,
   resetState,
@@ -144,7 +141,6 @@ const SqlEditorLeftBar = ({
   const onDbChange = ({ id: dbId }: { id: number }) => {
     setEmptyState(false);
     dispatch(queryEditorSetDb(queryEditor, dbId));
-    dispatch(queryEditorSetFunctionNames(queryEditor, dbId));
   };
 
   const selectedTableNames = useMemo(
@@ -210,35 +206,32 @@ const SqlEditorLeftBar = ({
   const shouldShowReset = window.location.search === '?reset=1';
   const tableMetaDataHeight = height - 130; // 130 is the height of the selects above
 
-  const handleSchemaChange = useCallback((schema: string) => {
-    if (queryEditor) {
-      dispatch(queryEditorSetSchema(queryEditor, schema));
-    }
-  }, []);
+  const handleSchemaChange = useCallback(
+    (schema: string) => {
+      if (queryEditor) {
+        dispatch(queryEditorSetSchema(queryEditor, schema));
+      }
+    },
+    [dispatch, queryEditor],
+  );
 
-  const handleTablesLoad = useCallback((options: Array<any>) => {
-    if (queryEditor) {
-      dispatch(queryEditorSetTableOptions(queryEditor, options));
-    }
-  }, []);
+  const handleDbList = useCallback(
+    (result: DatabaseObject) => {
+      dispatch(setDatabases(result));
+    },
+    [dispatch],
+  );
 
-  const handleSchemasLoad = useCallback((options: Array<any>) => {
-    if (queryEditor) {
-      dispatch(queryEditorSetSchemaOptions(queryEditor, options));
-    }
-  }, []);
-
-  const handleDbList = useCallback((result: DatabaseObject) => {
-    dispatch(setDatabases(result));
-  }, []);
-
-  const handleError = useCallback((message: string) => {
-    dispatch(addDangerToast(message));
-  }, []);
+  const handleError = useCallback(
+    (message: string) => {
+      dispatch(addDangerToast(message));
+    },
+    [dispatch],
+  );
 
   const handleResetState = useCallback(() => {
     dispatch(resetState());
-  }, []);
+  }, [dispatch]);
 
   return (
     <LeftBarStyles data-test="sql-editor-left-bar">
@@ -250,9 +243,7 @@ const SqlEditorLeftBar = ({
         handleError={handleError}
         onDbChange={onDbChange}
         onSchemaChange={handleSchemaChange}
-        onSchemasLoad={handleSchemasLoad}
         onTableSelectChange={onTablesChange}
-        onTablesLoad={handleTablesLoad}
         schema={schema}
         tableValue={selectedTableNames}
         sqlLabMode

@@ -17,10 +17,10 @@
 import unittest.mock as mock
 from datetime import datetime
 from textwrap import dedent
-from typing import Any, Dict, Optional, Type
+from typing import Any, Optional
 
 import pytest
-from sqlalchemy import column, table, types
+from sqlalchemy import column, table
 from sqlalchemy.dialects import mssql
 from sqlalchemy.dialects.mssql import DATE, NTEXT, NVARCHAR, TEXT, VARCHAR
 from sqlalchemy.sql import select
@@ -50,8 +50,8 @@ from tests.unit_tests.fixtures.common import dttm
 )
 def test_get_column_spec(
     native_type: str,
-    sqla_type: Type[types.TypeEngine],
-    attrs: Optional[Dict[str, Any]],
+    sqla_type: type[TypeEngine],
+    attrs: Optional[dict[str, Any]],
     generic_type: GenericDataType,
     is_dttm: bool,
 ) -> None:
@@ -257,6 +257,7 @@ select TOP 100 * from currency""",
 select TOP 100 * from currency""",
             1000,
         ),
+        ("SELECT DISTINCT x from tbl", "SELECT DISTINCT TOP 100 x from tbl", 100),
         ("SELECT 1 as cnt", "SELECT TOP 10 1 as cnt", 10),
         (
             "select TOP 1000 * from abc where id=1",
